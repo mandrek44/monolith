@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E37DF7D-0F5F-4334-99FA-B222002DB53E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ABC.Apps.Tests</RootNamespace>
+    <AssemblyName>ABC.Apps.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TestRoutes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ABC.Delivery\ABC.Delivery.csproj">
+      <Project>{96a55d7f-13e0-4196-8a30-7cd3b73db379}</Project>
+      <Name>ABC.Delivery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ABC.Infrastructure.Contracts\ABC.Infrastructure.Contracts.csproj">
+      <Project>{12e81b34-f22d-403a-a309-8e3b535d76fb}</Project>
+      <Name>ABC.Infrastructure.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ABC.Infrastructure.Web\ABC.Infrastructure.Web.csproj">
+      <Project>{91f5e6e4-cead-428d-bb69-e97b8d9d6bd6}</Project>
+      <Name>ABC.Infrastructure.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ABC.Sales\ABC.Sales.csproj">
+      <Project>{e7fd3cc7-1d20-4964-b3de-22388d073c48}</Project>
+      <Name>ABC.Sales</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ABC.Support\ABC.Support.csproj">
+      <Project>{1e4b36cb-60d6-4646-a4a2-33179177337a}</Project>
+      <Name>ABC.Support</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

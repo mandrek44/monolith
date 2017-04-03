@@ -1,0 +1,18 @@
+﻿@* VirtualPath: ~/Root/Home/Index.cshtml *@
+@using System.Web.Optimization
+@using ABC.Infrastructure.Web.Defaults
+@model ABC.Infrastructure.Root.HomeController.Model
+
+@{
+    Layout = Html.DefaultLayout();
+}
+
+@foreach (var widget in @Model.Widgets)
+{
+    <div class="widget container">
+        <h1>@widget.WidgetLink.Title</h1>
+        <div class="body">
+            @Html.Action(widget.WidgetLink)
+        </div>
+    </div>
+}

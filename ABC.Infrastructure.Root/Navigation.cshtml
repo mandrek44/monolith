@@ -1,0 +1,13 @@
+﻿@* VirtualPath: ~/Root/Home/Navigation.cshtml *@
+@using System.Web.Optimization
+@using ABC.Infrastructure.Web.Defaults
+@model ABC.Infrastructure.Root.HomeController.Model
+
+<div class="menu">
+    <ul>
+        @foreach (var menuItem in @Model.MenuItems)
+        {
+            <li>@Html.ActionLink(menuItem.MenuLink)</li>
+        }
+    </ul>
+</div>

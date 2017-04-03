@@ -1,0 +1,25 @@
+﻿@using System.Web.Optimization
+@using ABC.Infrastructure.Web.Defaults
+@model ABC.Infrastructure.Root.HomeController.Model
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>ABC Home</title>
+    @Styles.Render("~/bundle.css")
+</head>
+<body>
+
+    <h1>Welcome to ABC services</h1>
+@Html.Action("Navigation", "Home", new {Area = "Root"})
+
+@RenderBody()
+
+@Scripts.Render("~/bundle.js")
+</body>
+</html>

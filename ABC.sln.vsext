@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution>
+  <Profile Name="Support" IsDefault="false" SingleStartProjectGuid="">
+    <Include>
+      <Project Guid="91f5e6e4-cead-428d-bb69-e97b8d9d6bd6" />
+      <Project Guid="1e4b36cb-60d6-4646-a4a2-33179177337a" />
+    </Include>
+  </Profile>
+  <Profile Name="Sales" IsDefault="false" SingleStartProjectGuid="">
+    <Include>
+      <Project Guid="91f5e6e4-cead-428d-bb69-e97b8d9d6bd6" />
+      <Project Guid="e7fd3cc7-1d20-4964-b3de-22388d073c48" />
+    </Include>
+  </Profile>
+  <Profile Name="Delivery" IsDefault="false" SingleStartProjectGuid="">
+    <Include>
+      <Project Guid="91f5e6e4-cead-428d-bb69-e97b8d9d6bd6" />
+      <Project Guid="96a55d7f-13e0-4196-8a30-7cd3b73db379" />
+    </Include>
+  </Profile>
+</Solution>

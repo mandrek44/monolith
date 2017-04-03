@@ -1,0 +1,36 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+   <ItemGroup>
+        <ModuleFiles Include="$(ProjectDir)\..\*\Content\**\*.*" Exclude="$(ProjectDir)\..\$(ProjectName)\Content\**\*.*">            
+        </ModuleFiles>
+    </ItemGroup>
+	
+        
+    <PropertyGroup>
+        <CopyAllFilesToSingleFolderForPackageDependsOn>
+            PublishContent;
+            $(CopyAllFilesToSingleFolderForPackageDependsOn);
+        </CopyAllFilesToSingleFolderForPackageDependsOn>
+        <CopyAllFilesToSingleFolderForMsdeployDependsOn>
+            PublishContent;
+            $(CopyAllFilesToSingleFolderForMsdeployDependsOn)
+        </CopyAllFilesToSingleFolderForMsdeployDependsOn>
+    </PropertyGroup>
+   
+    <Target Name="CopyModuleFiles">
+        <Copy SourceFiles="@(ModuleFiles)" DestinationFiles="@(ModuleFiles->'$(ProjectDir)Content\%(RecursiveDir)..\%(Filename)%(Extension)')" />
+    </Target>
+
+    <Target Name="PublishContent">
+        <ItemGroup>
+            <FilesForPackagingFromProject Include="@(ModuleFiles)">
+                <DestinationRelativePath>Content\%(RecursiveDir)..\%(Filename)%(Extension)</DestinationRelativePath>
+            </FilesForPackagingFromProject>
+        </ItemGroup>
+
+        <message text="@(FilesForPackagingFromProject)" />
+    </Target>
+
+    <Target Name="BeforeBuild" DependsOnTargets="CopyModuleFiles">
+
+    </Target>
+</Project>
