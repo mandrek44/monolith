@@ -4,7 +4,7 @@ using Autofac;
 
 namespace ABC.Home
 {
-    [AppRoute(Area)]
+    [AppName(Area)]
     public class HomeApp : IApp, IMenuItem
     {
         public const string Area = "Home";

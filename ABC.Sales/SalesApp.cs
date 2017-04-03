@@ -5,7 +5,7 @@ using Autofac;
 
 namespace ABC.Sales
 {
-    [AppRoute(Area)]
+    [AppName(Area)]
     public class SalesApp : IApp, IMenuItem, IDashboardWidget
     {
         public const string Area = "Sales";

@@ -4,7 +4,7 @@ using Autofac;
 
 namespace ABC.Sales.Support
 {
-    [AppRoute(Area)]
+    [AppName(Area)]
     public class SalesSupportAdapterApp : IApp
     {
         public const string Area = "SalesSupport";

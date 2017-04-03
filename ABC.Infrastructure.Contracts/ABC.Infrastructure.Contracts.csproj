@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppRouteAttribute.cs" />
+    <Compile Include="AppNameAttribute.cs" />
     <Compile Include="IAppDependencyContainer.cs" />
     <Compile Include="IApp.cs" />
     <Compile Include="IMenuItem.cs" />

@@ -11,7 +11,7 @@ namespace ABC.Apps.Tests
         {
             var apps = new[] {typeof(SupportApp)};
 
-            var allRoutes = apps.Select(app => app.GetCustomAttribute<AppRouteAttribute>()?.Route ?? AppRouteAttribute.GetDefaultRoute(app)).ToArray();
+            var allRoutes = apps.Select(app => app.GetCustomAttribute<AppNameAttribute>()?.Route ?? AppNameAttribute.GetDefaultRoute(app)).ToArray();
 
             var areUnique = allRoutes.Length == allRoutes.Distinct().Count();
             // TODO: Assert

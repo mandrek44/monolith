@@ -1,20 +1,45 @@
-# ASP.NET MVC Monolith Structure
+# ASP.NET MVC Structured Monolith 
 
 This project contains a sample application that shows mechanism used to create "Package by Feature" architecture using ASP.NET MVC 5 technology stack.
 
-The structure is based on idea that each major business feature forms a seperate `app`.
+The structure is based on idea that each major business feature forms a seperate app in form of class library.
 
-## Distributing web app building blocks
+## Putting web app building blocks in Class Libraries
 
-**Controllers**
+### Controllers
 
-Each app resides in it's own MVC area, and requires several steps in registration (IoC, MVC controller namespaces and routes):
+To use the controllers from different assembly, register controller namespace in `ControllerBuilder.Current.DefaultNamespaces`. 
+  
+It's best to keep each assembly controllers in seperate areas. To achieve this, register route for each area with namespace constraint: 
+  
+    var route = RouteTable.Routes.MapRoute(
+        name: appName,
+        url: appName + "/{controller}/{action}/{id}",
+        defaults: new {controller = "Root", action = "Index", id = UrlParameter.Optional },
+        namespaces: new[] {appType.Namespace})
 
-    container.RegisterControllers(app.GetType().Assembly);
-    ControllerBuilder.Current.DefaultNamespaces.Add(app.GetType().Namespace);
-    DefaultRoute.CreateAppRoute(app.GetType());
+Remebmer to specify the Area for created route with `DataTokens` property:
+                    
+    route.DataTokens["area"] = appName;
+
+Additionaly disable the namespace fallback to force the routes are being evaluated accordingly to constraints:
+
+    route.DataTokens["UseNamespaceFallback"] = false;
+
+
+### Razor files
+
+`RazorGenerator` can be used to load razor views from seperate class libraries the is used. Use `RazorGenerator.MsBuild` package to rebuild the razor views with each build. 
+
+The compiled views become part of the assembly and therefore cannot be changed during runtime. This means that to fix even a single typo, entire assembly needs to be recompiled which will cause the IIS app-pool to reload.
+
+To make the development cycle faster, it's possible to implement custom `VirtualPathProvider` that will locate the physical files (in their project folders) instrad of emvedded precompiled razor views.
+
+Additionaly the `RazorGenerator.PrecompiledRazorEngine` must be made aware of this additional Path provider so that it will be able to determine if the physical file is newer in order to serve it.
+
+See `ABC.Infrastructure.Web.Defaults.VirtualPath.ABCVirtualPathProvider`.
             
-**Static files**
+### Static files
 
 Static files from each app are copied to final web app during build using `msbuild` custom target. By convention, all static files should reside in `Content` subfolder:
 
@@ -29,14 +54,6 @@ Static files from each app are copied to final web app during build using `msbui
 
     <Target Name="BeforeBuild" DependsOnTargets="CopyModuleFiles">
     
-    
-**Razor files**
+File `ABC.Infrastructure.Web\Custom.targets` contains full definition of this target. Besides file copying, it also adds the Content files to packaging targets.
 
-To load razor views from seperate class libraries the `RazorGenerator` is used. Custom `VirtualPathProvider` (enabled only in debug) is used to make it possible to edit the files without recompiling entire application.
-
-asdstring
-Version:0.9 StartHTML:0000000149 EndHTML:0000001431 StartFragment:0000000185 EndFragment:0000001395 SourceURL:http://localhost:52127/Home/Home
-**Test Strong**
-
-<sup>Test Sup</sup>
 
