@@ -3,7 +3,6 @@
         <ModuleFiles Include="$(ProjectDir)\..\*\Content\**\*.*" Exclude="$(ProjectDir)\..\$(ProjectName)\Content\**\*.*">            
         </ModuleFiles>
     </ItemGroup>
-	
         
     <PropertyGroup>
         <CopyAllFilesToSingleFolderForPackageDependsOn>

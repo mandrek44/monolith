@@ -2,8 +2,8 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ABC.Home;
 using ABC.Infrastructure.Contracts;
-using ABC.Infrastructure.Root;
 using ABC.Infrastructure.Web.Defaults;
 using ABC.Sales;
 using ABC.Support;
@@ -21,7 +21,7 @@ namespace ABC.Infrastructure.Web
 
             var builder = CreateContainerBuilder();
 
-            var subApps = new IApp[] { new RootApp(), new SupportApp(), new SalesApp() };
+            var subApps = new IApp[] { new HomeApp(), new SupportApp(), new SalesApp() };
             foreach (var app in subApps)
             {
                 StartApplication(app, builder);
@@ -72,10 +72,10 @@ namespace ABC.Infrastructure.Web
             routes.MapRoute(
                     name: "Default_withID",
                     url: "{controller}/{action}/{id}",
-                    defaults: new {controller = "Home", action = "Index", area = RootApp.Area, id = UrlParameter.Optional},
-                    namespaces: new[] {typeof(RootApp).Namespace})
+                    defaults: new {controller = "Home", action = "Index", area = HomeApp.Area, id = UrlParameter.Optional},
+                    namespaces: new[] {typeof(HomeApp).Namespace})
                 .WithDefaultSettings()
-                .WithArea(RootApp.Area);
+                .WithArea(HomeApp.Area);
         }
     }
 }

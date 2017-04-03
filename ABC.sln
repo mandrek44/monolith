@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Infrastructure.Web", "ABC.Infrastructure.Web\ABC.Infrastructure.Web.csproj", "{91F5E6E4-CEAD-428D-BB69-E97B8D9D6BD6}"
 EndProject
@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Apps.Tests", "ABC.Apps.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Infrastructure.Web.Defaults", "ABC.Infrastructure.Web.Defaults\ABC.Infrastructure.Web.Defaults.csproj", "{F0C185B3-80DB-4AAC-8AE8-C3EC580F99D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Infrastructure.Root", "ABC.Infrastructure.Root\ABC.Infrastructure.Root.csproj", "{EF45E45B-AF7A-49F5-BEFB-BFBD6D34AFBD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BA93ABAE-A035-4DEB-92C9-59BC79F71FAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABC.Home", "ABC.Home\ABC.Home.csproj", "{EF45E45B-AF7A-49F5-BEFB-BFBD6D34AFBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +70,5 @@ Global
 		{12E81B34-F22D-403A-A309-8E3B535D76FB} = {BA93ABAE-A035-4DEB-92C9-59BC79F71FAD}
 		{4E37DF7D-0F5F-4334-99FA-B222002DB53E} = {5999F5D9-231A-44F3-A9F4-1CDE616EF19E}
 		{F0C185B3-80DB-4AAC-8AE8-C3EC580F99D7} = {BA93ABAE-A035-4DEB-92C9-59BC79F71FAD}
-		{EF45E45B-AF7A-49F5-BEFB-BFBD6D34AFBD} = {BA93ABAE-A035-4DEB-92C9-59BC79F71FAD}
 	EndGlobalSection
 EndGlobal

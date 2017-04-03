@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using ABC.Infrastructure.Contracts;
 
-namespace ABC.Infrastructure.Root
+namespace ABC.Home
 {
     public class HomeController : Controller
     {

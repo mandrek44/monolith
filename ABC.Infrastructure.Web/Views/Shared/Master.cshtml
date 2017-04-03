@@ -1,6 +1,7 @@
 ﻿@using System.Web.Optimization
+@using ABC.Home
 @using ABC.Infrastructure.Web.Defaults
-@model ABC.Infrastructure.Root.HomeController.Model
+@model dynamic
 
 @{
     Layout = null;
@@ -16,7 +17,7 @@
 <body>
 
     <h1>Welcome to ABC services</h1>
-@Html.Action("Navigation", "Home", new {Area = "Root"})
+@Html.Action("Navigation", "Home", new {Area = HomeApp.Area})
 
 @RenderBody()
 

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 using ABC.Infrastructure.Contracts;
 using ABC.Infrastructure.Web.Defaults;
 using Autofac;
 
-namespace ABC.Infrastructure.Root
+namespace ABC.Home
 {
     [AppRoute(Area)]
-    public class RootApp : IApp, IMenuItem
+    public class HomeApp : IApp, IMenuItem
     {
-        public const string Area = "Root";
+        public const string Area = "Home";
 
         public void OnApplicationStart(ContainerBuilder container)
         {
@@ -21,7 +16,7 @@ namespace ABC.Infrastructure.Root
 
             DefaultRazorEngine.Initialize(GetType());
 
-            BundleTable.Bundles.GetBundleFor("~/bundle.css").IncludeDirectory("~/Content/ABC.Infrastructure.Root/", "*.css");
+            BundleTable.Bundles.GetBundleFor("~/bundle.css").IncludeDirectory("~/Content/ABC.Home/", "*.css");
         }
 
         public ActionLink MenuLink { get; } = new ActionLink(

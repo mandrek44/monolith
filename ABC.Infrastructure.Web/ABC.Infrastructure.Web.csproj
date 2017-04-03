@@ -134,13 +134,13 @@
       <Project>{96a55d7f-13e0-4196-8a30-7cd3b73db379}</Project>
       <Name>ABC.Delivery</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ABC.Home\ABC.Home.csproj">
+      <Project>{ef45e45b-af7a-49f5-befb-bfbd6d34afbd}</Project>
+      <Name>ABC.Home</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ABC.Infrastructure.Contracts\ABC.Infrastructure.Contracts.csproj">
       <Project>{12e81b34-f22d-403a-a309-8e3b535d76fb}</Project>
       <Name>ABC.Infrastructure.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ABC.Infrastructure.Root\ABC.Infrastructure.Root.csproj">
-      <Project>{ef45e45b-af7a-49f5-befb-bfbd6d34afbd}</Project>
-      <Name>ABC.Infrastructure.Root</Name>
     </ProjectReference>
     <ProjectReference Include="..\ABC.Infrastructure.Web.Defaults\ABC.Infrastructure.Web.Defaults.csproj">
       <Project>{f0c185b3-80db-4aac-8ae8-c3ec580f99d7}</Project>

@@ -7,8 +7,8 @@
     <ProjectGuid>{EF45E45B-AF7A-49F5-BEFB-BFBD6D34AFBD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ABC.Infrastructure.Root</RootNamespace>
-    <AssemblyName>ABC.Infrastructure.Root</AssemblyName>
+    <RootNamespace>ABC.Home</RootNamespace>
+    <AssemblyName>ABC.Home</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -86,7 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeController.cs" />
-    <Compile Include="RootApp.cs" />
+    <Compile Include="HomeApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
