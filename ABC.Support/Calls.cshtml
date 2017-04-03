@@ -1,0 +1,24 @@
+﻿@* VirtualPath: ~/Support/CustomerCallWidget/Calls.cshtml *@
+@using System.Web.Optimization
+@model IEnumerable<ABC.Support.CallsStatistic>
+
+    @{
+        Layout = null;
+    }
+
+    <table class="support calls">
+        <tr>
+            <th>Month</th>
+            <th># Calls</th>
+            <th>Avg Satistaction</th>
+        </tr>
+
+        @foreach (var stat in Model)
+        {
+            <tr>
+                <td>@stat.Month</td>
+                <td>@stat.CallsCount</td>
+                <td>@(stat.AverageSatisfaction * 100)%</td>
+            </tr>
+        }
+    </table>

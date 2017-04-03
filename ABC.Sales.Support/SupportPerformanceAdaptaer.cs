@@ -11,9 +11,9 @@ namespace ABC.Sales.Support
             _supportPerformanceMonitor = supportPerformanceMonitor;
         }
 
-        public double? GetPerformance(int monthIndex)
+        public double? GetPerformance(string month)
         {
-            return _supportPerformanceMonitor.GetCallsCountForMonth(monthIndex);
+            return _supportPerformanceMonitor.GetCallsCountForMonth(month);
         }
     }
 }

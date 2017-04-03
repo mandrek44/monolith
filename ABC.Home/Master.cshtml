@@ -12,17 +12,17 @@
 <html>
 <head>
     <title>ABC Home</title>
-    @Styles.Render("~/bundle.css")
+    @Styles.Render(DefaultBundle.CssName)
 </head>
 <body>
 
     <marquee> <h1>Welcome to ABC services</h1></marquee>
-@Html.Action("Navigation", "Home", new {Area = HomeApp.Area})
-    
-<hr />
+    @Html.Action("Navigation", "Home", new { Area = HomeApp.Area })
 
-@RenderBody()
+    <hr />
 
-@Scripts.Render("~/bundle.js")
+    @RenderBody()
+
+    @Scripts.Render(DefaultBundle.JsName)
 </body>
 </html>

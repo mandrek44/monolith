@@ -1,21 +1,12 @@
 ﻿@* VirtualPath: ~/Sales/Sales/Index.cshtml *@
 @using System.Web.Mvc.Html
 @using ABC.Infrastructure.Web.Defaults
-@model IEnumerable<ValueTuple<string, double?>>
+@model IEnumerable<ABC.Sales.MonthStatistic>
 
-@{
-    Layout = Html.DefaultLayout();
-}
-
-<h1>ABC Sales</h1>
-
-@Html.Action("SalesStats", "SalesStats")
-   
-<hr />
-Some performance indicators:
-<ul>
-    @foreach (var performance in Model)
-    {
-        <li>@performance</li>
+    @{
+        Layout = Html.DefaultLayout();
     }
-</ul>
+
+    <h1>ABC Sales</h1>
+
+    @Html.Partial("~/sales/SalesStats/SalesStats.cshtml")

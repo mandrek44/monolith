@@ -10,8 +10,7 @@ namespace ABC.Sales.Support
         public const string Area = "SalesSupport";
 
         public void OnApplicationStart(ContainerBuilder container)
-        {
-            container.RegisterInstance(this).AsImplementedInterfaces();
+        {            
             container.RegisterType<SupportPerformanceAdaptaer>().AsImplementedInterfaces().AsSelf();
         }
     }   

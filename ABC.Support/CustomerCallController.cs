@@ -6,9 +6,16 @@ namespace ABC.Support
 {
     public class CustomerCallController : Controller
     {
+        private readonly CallsRepository _callsRepository;
+
+        public CustomerCallController(CallsRepository callsRepository)
+        {
+            _callsRepository = callsRepository;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return View(_callsRepository.GetCallsStatistics());
         }
     }
 }

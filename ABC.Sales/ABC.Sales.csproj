@@ -93,6 +93,7 @@
     <Compile Include="SalesApp.cs" />
     <Compile Include="SalesController.cs" />
     <Compile Include="SalesStatsController.cs" />
+    <Compile Include="SalesStatsRepoitory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ABC.Infrastructure.Contracts\ABC.Infrastructure.Contracts.csproj">

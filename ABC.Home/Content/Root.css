@@ -19,6 +19,9 @@
     border-style: solid;
     border-color: black;
     margin-bottom: 10px;
+    width: 350px;
+    float: left;
+    margin-right: 10px;
 }
 
 .widget h1 {

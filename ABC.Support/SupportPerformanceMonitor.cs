@@ -2,10 +2,9 @@
 {
     public class SupportPerformanceMonitor
     {
-        public int? GetCallsCountForMonth(int monthIndex)
+        public int? GetCallsCountForMonth(string month)
         {
-            // TODO: Your implementation here
-            return monthIndex + 5;
+            return month.Length;
         }
     }
 }

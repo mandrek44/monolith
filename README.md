@@ -34,4 +34,9 @@ Static files from each app are copied to final web app during build using `msbui
 
 To load razor views from seperate class libraries the `RazorGenerator` is used. Custom `VirtualPathProvider` (enabled only in debug) is used to make it possible to edit the files without recompiling entire application.
 
+asdstring
+Version:0.9 StartHTML:0000000149 EndHTML:0000001431 StartFragment:0000000185 EndFragment:0000001395 SourceURL:http://localhost:52127/Home/Home
+**Test Strong**
+
+<sup>Test Sup</sup>
 

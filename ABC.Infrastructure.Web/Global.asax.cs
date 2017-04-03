@@ -17,14 +17,16 @@ namespace ABC.Infrastructure.Web
 {
     public class Global : System.Web.HttpApplication
     {
-        private readonly IApp[] _subApps = { new HomeApp(),
+        private readonly IApp[] _subApps = {
+            new HomeApp(),
             new SupportApp(),
-            /*new SalesApp(), new SalesSupportAdapterApp(),*/  };
+            new SalesApp(),
+            new SalesSupportAdapterApp(),  };
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            BundleTable.Bundles.Add(new Bundle("~/bundle.css"));
-            BundleTable.Bundles.Add(new Bundle("~/bundle.js"));
+            BundleTable.Bundles.Add(new Bundle(DefaultBundle.CssName));
+            BundleTable.Bundles.Add(new Bundle(DefaultBundle.JsName));
 
             var builder = CreateContainerBuilder();
             builder.RegisterType<ABCVirtualPathProvider>().AsSelf();
@@ -36,6 +38,7 @@ namespace ABC.Infrastructure.Web
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
 
 #if DEBUG
@@ -46,6 +49,8 @@ namespace ABC.Infrastructure.Web
         private static void StartApplication(IApp app, ContainerBuilder container)
         {
             container.RegisterControllers(app.GetType().Assembly);
+            container.RegisterInstance(app).AsSelf().AsImplementedInterfaces();
+
             ControllerBuilder.Current.DefaultNamespaces.Add(app.GetType().Namespace);
             DefaultRoute.CreateAppRoute(app.GetType());
 
@@ -56,21 +61,11 @@ namespace ABC.Infrastructure.Web
         {
             var builder = new ContainerBuilder();
 
-            // Register your MVC controllers. (MvcApplication is the name of
-            // the class in Global.asax.)
             builder.RegisterControllers(typeof(Global).Assembly);
-
-            // OPTIONAL: Register model binders that require DI.
             builder.RegisterModelBinders(typeof(Global).Assembly);
             builder.RegisterModelBinderProvider();
-
-            // OPTIONAL: Register web abstractions like HttpContextBase.
             builder.RegisterModule<AutofacWebTypesModule>();
-
-            // OPTIONAL: Enable property injection in view pages.
             builder.RegisterSource(new ViewRegistrationSource());
-
-            // OPTIONAL: Enable property injection into action filters.
             builder.RegisterFilterProvider();
 
             return builder;

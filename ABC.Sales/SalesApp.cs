@@ -12,10 +12,10 @@ namespace ABC.Sales
 
         public void OnApplicationStart(ContainerBuilder container)
         {
-            container.RegisterInstance(this).AsImplementedInterfaces();
+            container.RegisterType<SalesStatsRepoitory>().AsSelf();
 
             DefaultRazorEngine.Initialize(GetType(), container);
-            BundleTable.Bundles.GetBundleFor("~/bundle.css").IncludeDirectory($"~/Content/ABC.{Area}/", "*.css");
+            DefaultBundle.Css.IncludeDirectory($"~/Content/ABC.{Area}/", "*.css");
         }
 
         public ActionLink MenuLink => new ActionLink(

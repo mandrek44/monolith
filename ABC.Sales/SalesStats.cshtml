@@ -1,5 +1,6 @@
 ﻿@* VirtualPath: ~/sales/SalesStats/SalesStats.cshtml *@
 @using System.Web.Optimization
+@model IEnumerable<ABC.Sales.MonthStatistic>
 
 @{
     Layout = null;
@@ -10,22 +11,15 @@
         <th>Month</th>
         <th># Revenue</th>
         <th>% Target</th>
+        <th>% Performance</th>
     </tr>
-    <tr>
-        <td>January</td>
-        <td>132</td>
-        <td>78%</td>
-    </tr>
-    <tr>
-        <td>Febrauary</td>
-        <td>98</td>
-        <td>81%</td>
-    </tr>
-
-    <tr>
-        <td>March</td>
-        <td>231</td>
-        <td>12%</td>
-    </tr>
-
+    @foreach (var stat in Model)
+    {
+        <tr>
+            <td>@stat.Month</td>
+            <td>@stat.Revenue</td>
+            <td>@(stat.Target * 100.0)%</td>
+            <td>@stat.Performance</td>
+        </tr>
+    }
 </table>

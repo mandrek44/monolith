@@ -1,11 +1,12 @@
 ﻿@* VirtualPath: ~/Support/CustomerCall/Index.cshtml *@
 @using System.Web.Mvc.Html
 @using ABC.Infrastructure.Web.Defaults
+@model IEnumerable<ABC.Support.CallsStatistic>
 
-@{
-    Layout = Html.DefaultLayout();
-}
+    @{
+        Layout = Html.DefaultLayout();
+    }
 
-<h1>Customer call page</h1>
+    <h1>Customer call page</h1>
 
-@Html.Action("Index", "CustomerCallReport")
+    @Html.Partial("~/Support/CustomerCallWidget/Calls.cshtml")
