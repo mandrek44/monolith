@@ -15,8 +15,6 @@ namespace ABC.Support
             container.RegisterInstance(this).AsImplementedInterfaces();
 
             DefaultRazorEngine.Initialize(GetType(), container);
-
-            BundleTable.Bundles.GetBundleFor("~/bundle.css").IncludeDirectory("~/Content/ABC.Support/", "*.css");
         }
 
         public ActionLink MenuLink => new ActionLink(

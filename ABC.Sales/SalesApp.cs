@@ -1,3 +1,4 @@
+using System.Web.Optimization;
 using ABC.Infrastructure.Contracts;
 using ABC.Infrastructure.Web.Defaults;
 using Autofac;
@@ -7,7 +8,7 @@ namespace ABC.Sales
     [AppRoute(Area)]
     public class SalesApp : IApp, IMenuItem, IDashboardWidget
     {
-        public const string Area = "sales";
+        public const string Area = "Sales";
 
         public void OnApplicationStart(ContainerBuilder container)
         {

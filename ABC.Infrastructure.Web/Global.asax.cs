@@ -45,6 +45,8 @@ namespace ABC.Infrastructure.Web
             ControllerBuilder.Current.DefaultNamespaces.Add(app.GetType().Namespace);
             DefaultRoute.CreateAppRoute(app.GetType());
 
+            BundleTable.Bundles.GetBundleFor("~/bundle.css").IncludeDirectory($"~/Content/ABC.{app.GetRoute()}/", "*.css");
+
             app.OnApplicationStart(container);
         }
 

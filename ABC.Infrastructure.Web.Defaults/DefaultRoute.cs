@@ -8,15 +8,15 @@ namespace ABC.Infrastructure.Web.Defaults
 {
     public static class DefaultRoute
     {
-        public static Route CreateAppRoute(Type appName)
+        public static Route CreateAppRoute(Type appType)
         {
-            var routeName = appName.GetCustomAttribute<AppRouteAttribute>()?.Route ?? AppRouteAttribute.GetDefaultRoute(appName).ToLower();
+            var routeName = appType.GetAppRoute();
 
             return RouteTable.Routes.MapRoute(
                     name: routeName,
                     url: routeName + "/{controller}/{action}/{id}",
                     defaults: new {controller = "Root", action = "Index", id = UrlParameter.Optional, area = routeName},
-                    namespaces: new[] {appName.Namespace})
+                    namespaces: new[] {appType.Namespace})
                 .WithDefaultSettings()
                 .WithArea(routeName);
         }
