@@ -88,6 +88,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalesApp.cs" />
     <Compile Include="SalesController.cs" />
+    <Compile Include="SalesStatsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ABC.Infrastructure.Contracts\ABC.Infrastructure.Contracts.csproj">
@@ -101,6 +102,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="SalesStats.cshtml" />
+    <Content Include="Index.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -2,9 +2,9 @@
 
 namespace ABC.Sales
 {
-    public class SalesController : Controller
+    public class SalesStatsController : Controller
     {
-        public ActionResult Index()
+        public ActionResult SalesStats()
         {
             return View();
         }

@@ -1,7 +1,7 @@
-﻿@using System.Web.Optimization
+﻿@* VirtualPath: ~/Views/Shared/Master.cshtml *@
+@using System.Web.Optimization
 @using ABC.Home
 @using ABC.Infrastructure.Web.Defaults
-@model dynamic
 
 @{
     Layout = null;
@@ -16,8 +16,10 @@
 </head>
 <body>
 
-    <h1>Welcome to ABC services</h1>
+    <marquee> <h1>Welcome to ABC services</h1></marquee>
 @Html.Action("Navigation", "Home", new {Area = HomeApp.Area})
+    
+<hr />
 
 @RenderBody()
 

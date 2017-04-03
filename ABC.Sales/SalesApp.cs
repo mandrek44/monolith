@@ -5,7 +5,7 @@ using Autofac;
 namespace ABC.Sales
 {
     [AppRoute(Area)]
-    public class SalesApp : IApp, IMenuItem
+    public class SalesApp : IApp, IMenuItem, IDashboardWidget
     {
         public const string Area = "sales";
 
@@ -21,5 +21,11 @@ namespace ABC.Sales
             controller: nameof(SalesController),
             action: nameof(SalesController.Index),
             title: "Sales");
+
+        public ActionLink WidgetLink => new ActionLink(
+            area: Area,
+            controller: nameof(SalesStatsController),
+            action: nameof(SalesStatsController.SalesStats),
+            title: "Sales Stats");
     }
 }

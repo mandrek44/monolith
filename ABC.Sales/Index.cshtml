@@ -1,0 +1,11 @@
+﻿@* VirtualPath: ~/sales/Sales/Index.cshtml *@
+@using System.Web.Mvc.Html
+@using ABC.Infrastructure.Web.Defaults
+
+@{
+    Layout = Html.DefaultLayout();
+}
+
+<h1>ABC Sales</h1>
+
+@Html.Action("SalesStats", "SalesStats")

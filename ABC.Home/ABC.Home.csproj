@@ -103,6 +103,7 @@
     <None Include="app.config" />
     <Content Include="Index.cshtml" />
     <Content Include="Navigation.cshtml" />
+    <Content Include="Master.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

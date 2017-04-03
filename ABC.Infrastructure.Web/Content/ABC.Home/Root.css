@@ -1,5 +1,5 @@
 ﻿h1 {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .menu ul {
@@ -17,6 +17,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    margin-bottom: 10px;
 }
 
 .widget h1 {
