@@ -141,6 +141,10 @@
       <Project>{f0c185b3-80db-4aac-8ae8-c3ec580f99d7}</Project>
       <Name>ABC.Infrastructure.Web.Defaults</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ABC.Sales.Support\ABC.Sales.Support.csproj">
+      <Project>{77B7791F-BD98-44FC-BC44-5D0AABC6105E}</Project>
+      <Name>ABC.Sales.Support</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ABC.Sales\ABC.Sales.csproj">
       <Project>{e7fd3cc7-1d20-4964-b3de-22388d073c48}</Project>
       <Name>ABC.Sales</Name>

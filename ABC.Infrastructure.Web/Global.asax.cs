@@ -8,6 +8,7 @@ using ABC.Infrastructure.Contracts;
 using ABC.Infrastructure.Web.Defaults;
 using ABC.Infrastructure.Web.Defaults.VirtualPath;
 using ABC.Sales;
+using ABC.Sales.Support;
 using ABC.Support;
 using Autofac;
 using Autofac.Integration.Mvc;
@@ -16,6 +17,10 @@ namespace ABC.Infrastructure.Web
 {
     public class Global : System.Web.HttpApplication
     {
+        private readonly IApp[] _subApps = { new HomeApp(),
+            new SupportApp(),
+            /*new SalesApp(), new SalesSupportAdapterApp(),*/  };
+
         protected void Application_Start(object sender, EventArgs e)
         {
             BundleTable.Bundles.Add(new Bundle("~/bundle.css"));
@@ -24,8 +29,7 @@ namespace ABC.Infrastructure.Web
             var builder = CreateContainerBuilder();
             builder.RegisterType<ABCVirtualPathProvider>().AsSelf();
 
-            var subApps = new IApp[] { new HomeApp(), new SupportApp(), new SalesApp() };
-            foreach (var app in subApps)
+            foreach (var app in _subApps)
             {
                 StartApplication(app, builder);
             }
@@ -44,8 +48,6 @@ namespace ABC.Infrastructure.Web
             container.RegisterControllers(app.GetType().Assembly);
             ControllerBuilder.Current.DefaultNamespaces.Add(app.GetType().Namespace);
             DefaultRoute.CreateAppRoute(app.GetType());
-
-            BundleTable.Bundles.GetBundleFor("~/bundle.css").IncludeDirectory($"~/Content/ABC.{app.GetRoute()}/", "*.css");
 
             app.OnApplicationStart(container);
         }
