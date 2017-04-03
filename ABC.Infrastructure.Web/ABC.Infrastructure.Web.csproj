@@ -129,10 +129,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ABC.Delivery\ABC.Delivery.csproj">
-      <Project>{96a55d7f-13e0-4196-8a30-7cd3b73db379}</Project>
-      <Name>ABC.Delivery</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ABC.Home\ABC.Home.csproj">
       <Project>{ef45e45b-af7a-49f5-befb-bfbd6d34afbd}</Project>
       <Name>ABC.Home</Name>

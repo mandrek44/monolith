@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using ABC.Home;
 using ABC.Infrastructure.Contracts;
 using ABC.Infrastructure.Web.Defaults;
+using ABC.Infrastructure.Web.Defaults.VirtualPath;
 using ABC.Sales;
 using ABC.Support;
 using Autofac;
@@ -20,6 +22,7 @@ namespace ABC.Infrastructure.Web
             BundleTable.Bundles.Add(new Bundle("~/bundle.js"));
 
             var builder = CreateContainerBuilder();
+            builder.RegisterType<ABCVirtualPathProvider>().AsSelf();
 
             var subApps = new IApp[] { new HomeApp(), new SupportApp(), new SalesApp() };
             foreach (var app in subApps)
@@ -27,8 +30,13 @@ namespace ABC.Infrastructure.Web
                 StartApplication(app, builder);
             }
 
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+
+#if DEBUG
+            HostingEnvironment.RegisterVirtualPathProvider(container.Resolve<ABCVirtualPathProvider>());
+#endif
         }
 
         private static void StartApplication(IApp app, ContainerBuilder container)

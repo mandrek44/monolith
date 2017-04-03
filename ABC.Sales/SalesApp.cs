@@ -13,7 +13,7 @@ namespace ABC.Sales
         {
             container.RegisterInstance(this).AsImplementedInterfaces();
 
-            DefaultRazorEngine.Initialize(GetType());
+            DefaultRazorEngine.Initialize(GetType(), container);
         }
 
         public ActionLink MenuLink => new ActionLink(

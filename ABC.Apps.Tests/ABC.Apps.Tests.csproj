@@ -44,10 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ABC.Delivery\ABC.Delivery.csproj">
-      <Project>{96a55d7f-13e0-4196-8a30-7cd3b73db379}</Project>
-      <Name>ABC.Delivery</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ABC.Infrastructure.Contracts\ABC.Infrastructure.Contracts.csproj">
       <Project>{12e81b34-f22d-403a-a309-8e3b535d76fb}</Project>
       <Name>ABC.Infrastructure.Contracts</Name>
